@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>contact us form</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url(pexels-leon-ardho-1552106.jpg);
+            background-size: 50%;
+            text-transform: capitalize;
+            color: white;
+        }
+
+        body h2 {
+            text-align: center;
+        }
+
+        form {
+            width: 400px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            background-color: rgba(150, 172, 243, 0.6);
+            color: white;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        .box{
+            width: 420px;
+            height: 420px;
+            border-radius: 10px;
+            border: 1px solid white;
+            margin-left: 450px;
+            margin-top: 80px;
+        }
+    </style>
+    <script>function validateForm() {
+            var name = document.forms["contactForm"]["name"].value;
+            var email = document.forms["contactForm"]["email"].value;
+            var message = document.forms["contactForm"]["message"].value;
+            var error = "";
+
+            if (name == "") {
+                error += "Please enter your name. \n";
+            }
+
+            if (email == "") {
+                error += "Please enter your email address.\n";
+            } else if (!validateEmail(email)) {
+                error += "Please enter a valid email address.\n";
+            }
+
+            if (message == "") {
+                error += "Please enter a message.\n";
+            }
+
+            if (error != "") {
+                alert(error);
+                return false;
+            }
+        }
+        function validateEmail(email) {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h2>Contact us</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <br>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+</body>
+
+</html>
